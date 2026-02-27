@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1b1b1b;
+    background: #ffffff;
+  }
+}
+
+@layer components {
+  .gov-banner {
+    background: #f0f0f0;
+    border-bottom: 1px solid #dfe1e2;
+  }
+  .nav-link {
+    @apply text-white hover:text-gov-gold transition-colors duration-200 font-semibold text-sm;
+  }
+  .section-card {
+    @apply bg-white border border-gov-gray-mid rounded shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+/* Sticky header scroll effect handled via JS */
+.header-scrolled {
+  background: #162e51 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Overlay banner animation */
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.overlay-banner {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Responsive grid for nav cards */
+@media (max-width: 640px) {
+  .nav-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
